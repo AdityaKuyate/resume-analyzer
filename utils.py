@@ -32,14 +32,17 @@ GENERIC_WORDS = {
 
 
 def extract_text_from_pdf(file_bytes: bytes) -> str:
-    """Extract raw text from an uploaded PDF file's bytes."""
-    text_chunks = []
-    with pdfplumber.open(BytesIO(file_bytes)) as pdf:
-        for page in pdf.pages:
-            page_text = page.extract_text()
-            if page_text:
-                text_chunks.append(page_text)
-    return "\n".join(text_chunks)
+    """Extract text from a PDF using pypdf."""
+    reader = PdfReader(BytesIO(file_bytes))
+
+    text = ""
+
+    for page in reader.pages:
+        page_text = page.extract_text()
+        if page_text:
+            text += page_text + "\n"
+
+    return text
 
 
 def clean_text(raw_text: str) -> str:

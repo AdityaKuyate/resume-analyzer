@@ -2,7 +2,8 @@
 
 A Streamlit web app that compares a resume against a job description and returns:
 
-live demo :https://resume-analyzer-bbjpfc25nkkjtpsjjm924y.streamlit.app/
+Live demo :https://resume-analyzer-bbjpfc25nkkjtpsjjm924y.streamlit.app/
+
 - A **match score** (0–100%) using TF-IDF + cosine similarity
 - **Keywords you already have** that match the job description
 - **Keywords missing** from your resume that the job description emphasizes
